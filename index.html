@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for the march '09 baby 🤍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF1EC;
+    --cream2:#F6E3DA;
+    --pink:#F4C6D2;
+    --pink-deep:#E8A0B6;
+    --rose:#C97B90;
+    --plum:#4A3542;
+    --plum-soft:#8A7280;
+    --gold:#D9A253;
+    --gold-soft:#EFD4A6;
+    --white:#FFFDFB;
+    --shadow: 0 14px 34px rgba(74,53,66,0.14);
+    --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Quicksand', sans-serif;
+    background:
+      radial-gradient(circle at 15% 10%, var(--cream2), transparent 55%),
+      radial-gradient(circle at 85% 90%, var(--pink), transparent 50%),
+      var(--cream);
+    color:var(--plum);
+    overflow-x:hidden;
+  }
+  body.locked{overflow:hidden; height:100vh;}
+  h1,h2,h3,.display{font-family:'Baloo 2', sans-serif;}
+  ::selection{background:var(--pink-deep); color:var(--white);}
+
+  /* ---------- decorative stitched thread progress (desktop) ---------- */
+  .thread-progress{
+    position:fixed; left:22px; top:0; bottom:0; width:26px;
+    display:flex; align-items:center; justify-content:center;
+    z-index:40; pointer-events:none;
+  }
+  .thread-progress svg{height:80vh; width:26px;}
+  .thread-track{ stroke:var(--pink-deep); stroke-opacity:0.25; stroke-width:2.5; stroke-dasharray:1 9; stroke-linecap:round; fill:none;}
+  .thread-fill{ stroke:var(--gold); stroke-width:3; stroke-dasharray:1 9; stroke-linecap:round; fill:none; transition: stroke-dashoffset 0.1s linear;}
+  .thread-needle{ fill:var(--rose); filter:drop-shadow(0 2px 4px rgba(74,53,66,0.25)); transition: top 0.1s linear;}
+  @media (max-width:860px){ .thread-progress{display:none;} }
+
+  /* ---------- floating audio toggle ---------- */
+  .audio-toggle{
+    position:fixed; top:18px; right:18px; z-index:50;
+    width:42px; height:42px; border-radius:50%;
+    background:var(--white); border:1px solid var(--pink-deep);
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; transition:all 0.6s var(--ease);
+  }
+  .audio-toggle:hover{ transform:scale(1.08); background:var(--pink);}
+  .audio-toggle svg{width:18px; height:18px;}
+  .audio-toggle .muted-line{ opacity:0; transition:opacity 0.4s var(--ease);}
+  .audio-toggle.is-muted .muted-line{opacity:1;}
+
+  /* ---------- floating hearts burst layer ---------- */
+  #heartLayer{ position:fixed; inset:0; pointer-events:none; z-index:60; overflow:hidden;}
+  .burst-heart{ position:absolute; bottom:-5%; opacity:0.9; animation: floatUp 2.6s ease-in forwards;}
+  @keyframes floatUp{
+    0%{ transform:translateY(0) rotate(0deg) scale(0.6); opacity:0.95;}
+    70%{ opacity:0.9;}
+    100%{ transform:translateY(-105vh) rotate(30deg) scale(1.05); opacity:0;}
+  }
+
+  /* ---------- generic panel ---------- */
+  .panel{
+    min-height:100vh; width:100%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:80px 24px; position:relative;
+  }
+  .eyebrow{
+    font-family:'Baloo 2', sans-serif; font-weight:700; letter-spacing:0.14em;
+    text-transform:uppercase; font-size:12.5px; color:var(--rose);
+    display:inline-flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before, .eyebrow::after{ content:""; width:22px; height:2px; background:var(--gold); border-radius:2px;}
+  .fade-up{ opacity:0; transform:translateY(26px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);}
+  .fade-up.in-view{ opacity:1; transform:translateY(0);}
+  .card{
+    background:var(--white); border-radius:26px; box-shadow:var(--shadow);
+    border:1px solid rgba(201,123,144,0.18);
+  }
+
+  /* ============ SLIDE 1 - GATE ============ */
+  .gate-panel{
+    background:
+      radial-gradient(circle at 25% 20%, var(--pink) 0%, transparent 45%),
+      radial-gradient(circle at 80% 80%, var(--gold-soft) 0%, transparent 45%),
+      var(--cream);
+  }
+  .gate-card{ max-width:520px; width:100%; padding:56px 42px; text-align:center; position:relative;}
+  .stitch-badge{
+    width:64px; height:64px; margin:0 auto 22px; border-radius:50%;
+    background:var(--pink); display:flex; align-items:center; justify-content:center;
+    border:2px dashed var(--rose);
+  }
+  .stitch-badge svg{width:30px; height:30px;}
+  .gate-title{ font-size:26px; font-weight:700; line-height:1.4; margin-bottom:10px;}
+  .gate-sub{ font-size:15px; color:var(--plum-soft); margin-bottom:34px; line-height:1.6;}
+  .gate-btn{
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:15px;
+    background:var(--plum); color:var(--white); border:none; border-radius:999px;
+    padding:15px 30px; cursor:pointer; transition: all 0.6s var(--ease); box-shadow:var(--shadow);
+  }
+  .gate-btn:hover{ background:var(--rose); transform:translateY(-2px);}
+  .gate-question{
+    max-height:0; opacity:0; overflow:hidden; transition: all 0.6s var(--ease); margin-top:0;
+  }
+  .gate-question.open{ max-height:260px; opacity:1; margin-top:28px;}
+  .gate-question p{ font-size:14.5px; color:var(--plum-soft); margin-bottom:16px; line-height:1.6;}
+  .gate-input-row{ display:flex; gap:10px; justify-content:center;}
+  #gateInput{
+    font-family:'Quicksand', sans-serif; font-size:16px; text-align:center;
+    padding:13px 18px; border-radius:999px; border:2px solid var(--pink-deep);
+    background:var(--cream); width:170px; color:var(--plum); outline:none;
+    transition: all 0.4s var(--ease);
+  }
+  #gateInput:focus{ border-color:var(--rose); box-shadow:0 0 0 4px rgba(201,123,144,0.18);}
+  .gate-submit{
+    font-family:'Baloo 2', sans-serif; font-weight:600; border:none; border-radius:999px;
+    background:var(--gold); color:var(--white); padding:0 24px; cursor:pointer;
+    transition:all 0.5s var(--ease);
+  }
+  .gate-submit:hover{ background:var(--rose);}
+  .gate-shake{ animation: shake 0.5s var(--ease);}
+  @keyframes shake{
+    0%,100%{ transform:translateX(0);}
+    20%{ transform:translateX(-9px);}
+    40%{ transform:translateX(8px);}
+    60%{ transform:translateX(-6px);}
+    80%{ transform:translateX(5px);}
+  }
+  .gate-msg{
+    margin-top:16px; font-size:13.5px; color:var(--rose); font-weight:600;
+    min-height:18px; opacity:0; transition:opacity 0.4s var(--ease);
+  }
+  .gate-msg.show{ opacity:1;}
+  .gate-success{
+    margin-top:16px; font-size:13.5px; color:#5c8a6a; font-weight:600; opacity:0;
+    transition:opacity 0.4s var(--ease);
+  }
+  .gate-success.show{ opacity:1;}
+  .scroll-hint{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    font-size:12px; color:var(--plum-soft); letter-spacing:0.08em; opacity:0;
+    transition:opacity 0.8s var(--ease); display:flex; flex-direction:column; align-items:center; gap:6px;
+  }
+  .scroll-hint.show{ opacity:0.75;}
+  .scroll-hint svg{ width:14px; height:14px; animation: bob 1.6s ease-in-out infinite;}
+  @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(6px);} }
+
+  #mainContent{ transition: opacity 0.6s var(--ease);}
+  #mainContent.locked{ display:none;}
+
+  /* ============ SLIDE 2 - FACTS ============ */
+  .facts-panel .card{ max-width:600px; width:100%; padding:60px 46px; text-align:center;}
+  .facts-title{ font-size:24px; margin-bottom:34px;}
+  .fact-stage{ position:relative; min-height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:30px;}
+  .fact-slide{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    opacity:0; transform:translateY(14px); transition: all 0.7s var(--ease); pointer-events:none;
+  }
+  .fact-slide.active{ opacity:1; transform:translateY(0); pointer-events:auto;}
+  .fact-slide p{ font-size:17px; line-height:1.75; color:var(--plum);}
+  .fact-slide b{ color:var(--rose);}
+  .fact-dots, .tot-dots{ display:flex; gap:8px; justify-content:center; margin-bottom:26px;}
+  .fact-dot, .tot-dot{ width:7px; height:7px; border-radius:50%; background:var(--pink); transition:all 0.5s var(--ease);}
+  .fact-dot.active, .tot-dot.active{ background:var(--rose); width:22px; border-radius:5px;}
+  .next-fact-btn{
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:14.5px;
+    background:var(--rose); color:var(--white); border:none; border-radius:999px;
+    padding:13px 28px; cursor:pointer; transition:all 0.6s var(--ease);
+  }
+  .next-fact-btn:hover{ background:var(--plum); transform:translateY(-2px);}
+  .next-fact-btn:disabled{ opacity:0.45; cursor:default; transform:none;}
+
+  /* ============ SLIDE 3 - THIS OR THAT ============ */
+  .tot-panel{ width:100%; max-width:640px;}
+  .tot-title{ font-size:24px; text-align:center; margin-bottom:8px;}
+  .tot-sub{ text-align:center; color:var(--plum-soft); font-size:14px; margin-bottom:40px;}
+  .tot-item{ margin-bottom:34px;}
+  .tot-question{ font-size:15.5px; text-align:center; margin-bottom:16px; font-weight:600;}
+  .tot-options{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
+  .tot-option{
+    flex:1; min-width:200px; background:var(--white); border:2px solid var(--pink);
+    border-radius:18px; padding:16px 18px; text-align:center; font-size:14px;
+    cursor:pointer; transition:all 0.5s var(--ease); box-shadow:0 4px 14px rgba(74,53,66,0.06);
+  }
+  .tot-option:hover{ border-color:var(--rose); transform:translateY(-3px);}
+  .tot-option.picked{ background:var(--pink); border-color:var(--rose); font-weight:700;}
+  .tot-reaction{
+    max-height:0; opacity:0; overflow:hidden; transition:all 0.6s var(--ease);
+    text-align:center; font-size:13.5px; color:var(--plum-soft); margin-top:0;
+  }
+  .tot-reaction.show{ max-height:120px; opacity:1; margin-top:14px;}
+  .tot-reaction span{ background:var(--cream2); padding:10px 16px; border-radius:14px; display:inline-block;}
+
+  .tot-stage{ position:relative;}
+  .tot-item{ display:none;}
+  .tot-item.active{ display:block; animation: fadeInQ 0.6s var(--ease);}
+  @keyframes fadeInQ{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+  .tot-option.fading-out{ opacity:0; transform:scale(0.9); pointer-events:none;}
+  .tot-option.solo{ max-width:320px; margin:0 auto; flex:none; width:100%;}
+  .tot-reject-msg{
+    text-align:center; font-size:13px; color:var(--rose); font-weight:600;
+    max-height:0; opacity:0; overflow:hidden; transition:all 0.5s var(--ease); margin-top:0;
+  }
+  .tot-reject-msg.show{ max-height:40px; opacity:1; margin-top:12px;}
+  .tot-next-btn{ display:none; margin:26px auto 0; }
+  .tot-next-btn.show{ display:inline-flex;}
+
+  /* ---------- moments-found progress tracker ---------- */
+  .progress-tracker{
+    position:fixed; bottom:16px; left:50%; transform:translateX(-50%); z-index:45;
+    background:var(--white); border:1px solid var(--pink-deep); border-radius:999px;
+    padding:8px 16px; font-size:11.5px; font-weight:700; color:var(--rose);
+    box-shadow:var(--shadow); display:flex; align-items:center; gap:7px;
+    transition:all 0.6s var(--ease); font-family:'Baloo 2', sans-serif;
+  }
+  .progress-tracker svg{ width:13px; height:13px;}
+  .progress-tracker.complete{ background:var(--gold); color:var(--white); border-color:var(--gold);}
+  @media (max-width:860px){ .progress-tracker{ bottom:10px; font-size:10.5px; padding:7px 13px;} }
+
+  /* ---------- floating compliment button ---------- */
+  .compliment-btn{
+    position:fixed; bottom:16px; left:18px; z-index:45;
+    background:var(--pink); border:1px solid var(--rose); color:var(--plum);
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:11.5px;
+    border-radius:999px; padding:9px 15px; cursor:pointer; box-shadow:var(--shadow);
+    transition:all 0.6s var(--ease);
+  }
+  .compliment-btn:hover{ background:var(--rose); color:var(--white); transform:translateY(-2px);}
+  @media (max-width:860px){ .compliment-btn{ display:none;} }
+  .compliment-popover{
+    position:fixed; bottom:64px; left:18px; z-index:46; max-width:260px;
+    background:var(--white); border-radius:16px; padding:14px 18px; box-shadow:var(--shadow);
+    font-size:13px; line-height:1.6; color:var(--plum); border:1px solid var(--pink-deep);
+    opacity:0; transform:translateY(10px); pointer-events:none; transition:all 0.5s var(--ease);
+  }
+  .compliment-popover.show{ opacity:1; transform:translateY(0);}
+
+  /* ============ SLIDE 4 - TABS ============ */
+  .tabs-panel{ width:100%; max-width:640px;}
+  .tabs-title{ font-size:24px; text-align:center; margin-bottom:8px;}
+  .tabs-sub{ text-align:center; color:var(--plum-soft); font-size:14px; margin-bottom:36px;}
+  .tab-cards{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
+  .tab-card{
+    background:var(--white); border-radius:20px; padding:22px 20px; width:180px;
+    text-align:center; cursor:pointer; box-shadow:var(--shadow); border:2px solid transparent;
+    transition:all 0.55s var(--ease);
+  }
+  .tab-card:hover{ transform:translateY(-4px);}
+  .tab-card.active{ border-color:var(--rose); background:var(--pink);}
+  .tab-card svg{ width:30px; height:30px; margin-bottom:10px;}
+  .tab-card p{ font-size:13.5px; font-weight:700;}
+  .tab-body{
+    max-height:0; opacity:0; overflow:hidden; transition:all 0.7s var(--ease); margin-top:0;
+  }
+  .tab-body.open{ max-height:400px; opacity:1; margin-top:30px;}
+  .tab-body-inner{ background:var(--white); border-radius:20px; padding:30px 32px; box-shadow:var(--shadow);}
+  .tab-body-inner p{ font-size:14.5px; line-height:1.8; color:var(--plum);}
+
+  /* ============ MINI-GAME ============ */
+  .game-panel .card{ max-width:560px; width:100%; padding:46px 40px; text-align:center;}
+  .game-title{ font-size:22px; margin-bottom:8px;}
+  .game-sub{ font-size:13.5px; color:var(--plum-soft); margin-bottom:22px;}
+  .game-stats{ display:flex; justify-content:center; gap:26px; margin-bottom:18px; font-size:13.5px; font-weight:700; color:var(--rose);}
+  .game-field{
+    position:relative; height:300px; border-radius:20px; overflow:hidden;
+    background:linear-gradient(180deg, var(--cream2), var(--pink) 120%);
+    border:2px dashed var(--pink-deep); margin-bottom:20px;
+  }
+  .falling-item{
+    position:absolute; top:-40px; width:34px; height:34px; cursor:pointer;
+    animation: fallDown linear forwards; user-select:none;
+  }
+  .falling-item svg{ width:100%; height:100%; filter:drop-shadow(0 3px 5px rgba(74,53,66,0.18));}
+  @keyframes fallDown{ to{ transform:translateY(340px) rotate(200deg);} }
+  .game-msg{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:20px; font-size:14.5px; color:var(--plum-soft); background:transparent;}
+  .game-btn{
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:14.5px;
+    background:var(--gold); color:var(--white); border:none; border-radius:999px;
+    padding:13px 30px; cursor:pointer; transition:all 0.6s var(--ease);
+  }
+  .game-btn:hover{ background:var(--rose); transform:translateY(-2px);}
+  .game-btn:disabled{ opacity:0.5; cursor:default; transform:none;}
+  .game-result{ margin-top:14px; font-size:13.5px; font-weight:700; color:var(--rose); min-height:18px;}
+
+  /* ============ RAKHI THREAD ============ */
+  .rakhi-panel .card{ max-width:560px; width:100%; padding:52px 44px; text-align:center;}
+  .rakhi-title{ font-size:22px; margin-bottom:14px;}
+  .rakhi-sub{ font-size:14px; line-height:1.75; color:var(--plum-soft); margin-bottom:30px;}
+
+  .rakhi-visual-wrap{
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:30px;
+  }
+  .rakhi-art{
+    width:220px; border-radius:20px; overflow:hidden; background:var(--cream2);
+    box-shadow:var(--shadow); padding:18px;
+  }
+  .rakhi-art svg{ width:100%; display:block;}
+  #rakhiThread{ transition: stroke-dashoffset 1.6s var(--ease);}
+
+  .rakhi-btn{
+    font-family:'Baloo 2', sans-serif; font-weight:600; font-size:14.5px;
+    background:var(--gold); color:var(--white); border:none; border-radius:999px;
+    padding:14px 30px; cursor:pointer; transition:all 0.6s var(--ease);
+  }
+  .rakhi-btn:hover{ background:var(--rose); transform:translateY(-2px);}
+  .rakhi-btn:disabled{ opacity:0.6; cursor:default; transform:none; background:var(--rose);}
+  .rakhi-promise{
+    max-height:0; opacity:0; overflow:hidden; transition:all 0.7s var(--ease); margin-top:0;
+  }
+  .rakhi-promise.show{ max-height:160px; opacity:1; margin-top:22px;}
+  .rakhi-promise p{ font-size:14px; line-height:1.8; color:var(--plum); background:var(--cream2); padding:16px 20px; border-radius:16px;}
+
+  /* ============ VAULT ============ */
+  .vault-panel{ width:100%; max-width:680px;}
+  .vault-title{ font-size:24px; text-align:center; margin-bottom:8px;}
+  .vault-sub{ text-align:center; color:var(--plum-soft); font-size:14px; margin-bottom:38px;}
+  .envelope-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap:20px;}
+  .envelope{
+    background:var(--white); border-radius:20px; padding:30px 20px; text-align:center;
+    cursor:pointer; box-shadow:var(--shadow); border:1px solid rgba(201,123,144,0.2);
+    transition:all 0.55s var(--ease);
+  }
+  .envelope:hover{ transform:translateY(-5px) scale(1.015);}
+  .envelope svg{ width:38px; height:38px; margin-bottom:14px;}
+  .envelope p{ font-size:13.5px; font-weight:700; line-height:1.5;}
+  .footer-note{ text-align:center; margin-top:50px; font-size:12.5px; color:var(--plum-soft); opacity:0.8;}
+
+  /* ============ SLIDE 6 — PHOTO GALLERY ============ */
+  .gallery-panel{ width:100%; max-width:680px;}
+  .gallery-title{ font-size:24px; text-align:center; margin-bottom:8px;}
+  .gallery-sub{ text-align:center; color:var(--plum-soft); font-size:14px; margin-bottom:40px;}
+  .gallery-sub code{ background:var(--cream2); padding:1px 6px; border-radius:6px; font-family:'Quicksand', sans-serif; font-size:12.5px;}
+  .polaroid-grid{ display:flex; gap:24px; justify-content:center; flex-wrap:wrap;}
+  .polaroid{
+    background:var(--white); padding:14px 14px 32px; box-shadow:var(--shadow);
+    width:180px; text-align:center; transition:transform 0.6s var(--ease); border-radius:2px;
+  }
+  .polaroid:nth-child(1){ transform:rotate(-4deg);}
+  .polaroid:nth-child(2){ transform:rotate(3deg);}
+  .polaroid:nth-child(3){ transform:rotate(-2deg);}
+  .polaroid:hover{ transform:rotate(0deg) scale(1.05); z-index:2;}
+  .polaroid img{ width:100%; height:180px; object-fit:cover; display:block; border-radius:1px;}
+  .polaroid.img-missing img{ display:none;}
+  .polaroid-placeholder{
+    display:none; width:100%; height:180px; border:2px dashed var(--pink-deep); border-radius:6px;
+    align-items:center; justify-content:center; flex-direction:column; gap:8px;
+    color:var(--plum-soft); font-size:11.5px; background:var(--cream2); text-align:center; padding:10px;
+  }
+  .polaroid-placeholder svg{ width:24px; height:24px;}
+  .polaroid.img-missing .polaroid-placeholder{ display:flex;}
+  .polaroid figcaption{ font-family:'Baloo 2', sans-serif; font-size:12.5px; margin-top:12px; color:var(--plum);}
+
+  /* ---- reading overlay ---- */
+  .overlay{
+    position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center;
+    background:rgba(74,53,66,0.35); backdrop-filter:blur(6px); opacity:0; pointer-events:none;
+    transition:opacity 0.6s var(--ease); padding:24px;
+  }
+  .overlay.open{ opacity:1; pointer-events:auto;}
+  .overlay-card{
+    max-width:560px; width:100%; max-height:82vh; overflow-y:auto;
+    background:var(--white); border-radius:28px; padding:50px 46px;
+    box-shadow:0 24px 60px rgba(74,53,66,0.3);
+    transform:translateY(30px) scale(0.97); transition:all 0.6s var(--ease);
+  }
+  .overlay.open .overlay-card{ transform:translateY(0) scale(1);}
+  .overlay-close{
+    float:right; background:var(--cream2); border:none; border-radius:50%;
+    width:32px; height:32px; cursor:pointer; font-size:15px; color:var(--plum);
+    transition:all 0.4s var(--ease);
+  }
+  .overlay-close:hover{ background:var(--pink);}
+  .overlay-card h3{ font-size:19px; margin-bottom:20px; clear:both; padding-top:6px;}
+  .overlay-card p{ font-size:15px; line-height:2; color:var(--plum); letter-spacing:0.01em;}
+  .overlay-card p + p{ margin-top:16px;}
+  .overlay-sign{ margin-top:26px; font-size:14px; color:var(--rose); font-weight:700;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body class="locked">
+
+<div class="thread-progress">
+  <svg viewBox="0 0 26 400" preserveAspectRatio="none">
+    <path class="thread-track" d="M13 0 V400"/>
+    <path class="thread-fill" id="threadFill" d="M13 0 V400" style="stroke-dashoffset:400;"/>
+  </svg>
+</div>
+
+<button class="audio-toggle" id="audioToggle" aria-label="Toggle sound">
+  <svg viewBox="0 0 24 24" fill="none" stroke="var(--plum)" stroke-width="1.8" stroke-linecap="round">
+    <path d="M4 9v6h4l5 4V5L8 9H4z"/>
+    <path class="wave-line" d="M16.5 8.5c1.4 1 1.4 6 0 7"/>
+    <path class="muted-line" d="M18 8l4 8M22 8l-4 8"/>
+  </svg>
+</button>
+
+<div id="heartLayer"></div>
+
+<div class="progress-tracker" id="progressTracker">
+  <svg viewBox="0 0 24 24" fill="var(--rose)"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.2 2.3 4.5 6 4.1c2.2-.2 3.8 1 6 3.4 2.2-2.4 3.8-3.6 6-3.4 3.7.4 5.6 4.1 4 7.6C19.5 16.4 12 21 12 21z"/></svg>
+  <span id="progressLabel">moments found: 0/10</span>
+</div>
+
+<button class="compliment-btn" id="complimentBtn">🤍 tap for a compliment</button>
+<div class="compliment-popover" id="complimentPopover"></div>
+
+<!-- ============ SLIDE 1 : GATE ============ -->
+<section class="panel gate-panel" id="gate">
+  <div class="gate-card card">
+    <div class="stitch-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21s-7.5-4.6-10-9.3C.4 8.2 2.3 4.5 6 4.1c2.2-.2 3.8 1 6 3.4 2.2-2.4 3.8-3.6 6-3.4 3.7.4 5.6 4.1 4 7.6C19.5 16.4 12 21 12 21z"/>
+      </svg>
+    </div>
+    <h1 class="gate-title">a small digital space for<br>the march 2009 baby 🤍</h1>
+    <p class="gate-sub">built with unreasonable amounts of chaos and love, by your one and only younger internet brother.</p>
+
+    <button class="gate-btn" id="gateOpenBtn">click to prove you aren't an impostor</button>
+
+    <div class="gate-question" id="gateQuestion">
+      <p>enter the exact birth year of your favorite (and only) younger internet brother.</p>
+      <div class="gate-input-row">
+        <input type="text" id="gateInput" placeholder="year" inputmode="numeric" maxlength="4">
+        <button class="gate-submit" id="gateSubmitBtn">unlock</button>
+      </div>
+      <div class="gate-msg" id="gateMsg"></div>
+      <div class="gate-success" id="gateSuccess">correct. you may proceed, elder sibling. 🤍</div>
+    </div>
+
+    <div class="scroll-hint" id="scrollHint">
+      keep scrolling
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </div>
+</section>
+
+<main id="mainContent" class="locked">
+
+  <!-- ============ SLIDE 2 : FACTS ============ -->
+  <section class="panel facts-panel">
+    <div class="card fade-up">
+      <div class="eyebrow">01 - how this started</div>
+      <h2 class="facts-title">the online sibling reality</h2>
+
+      <div class="fact-dots" id="factDots"></div>
+
+      <div class="fact-stage">
+        <div class="fact-slide active" data-i="0">
+          <p>Fact 1: You were born in <b>March 2009</b>. I was born in <b>November 2009</b>. This technically makes you the elder, but we both know who's actually holding the brain cells here.</p>
+        </div>
+        <div class="fact-slide" data-i="1">
+          <p>Fact 2: We met online, miles apart, proving that blood doesn't make family - vibes and chaotic energy do.</p>
+        </div>
+        <div class="fact-slide" data-i="2">
+          <p>Fact 3: Even though we've never lived in the same place, you're stuck with me forever. Keep clicking, there's more.</p>
+        </div>
+      </div>
+
+      <button class="next-fact-btn" id="nextFactBtn">next fact →</button>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 3 : THIS OR THAT ============ -->
+  <section class="panel">
+    <div class="tot-panel fade-up">
+      <div class="eyebrow">02 - sibling roasts</div>
+      <h2 class="tot-title">this or that, no scores, just vibes</h2>
+      <p class="tot-sub">pick honestly. i will know if you're lying.</p>
+
+      <div class="tot-dots" id="totDots"></div>
+
+      <div class="tot-stage" id="totStage">
+        <div class="tot-item active" data-item="1">
+          <p class="tot-question">when i text you a paragraph of pure chaos at 2 AM, your immediate reaction is:</p>
+          <div class="tot-options">
+            <div class="tot-option" data-reject="wrong. try again, i see straight through you.">leave me on read like a bully.</div>
+            <div class="tot-option" data-correct="true" data-reaction="a whole novel back at 2:03 AM. this is why you're my favorite unhinged elder sister.">match my energy and type a whole book back.</div>
+          </div>
+          <div class="tot-reject-msg"></div>
+          <div class="tot-reaction"><span></span></div>
+        </div>
+
+        <div class="tot-item" data-item="2">
+          <p class="tot-question">if we finally hang out in person, who is causing a public scene first?</p>
+          <div class="tot-options">
+            <div class="tot-option" data-reject="cute try. that was never going to be the real answer.">me.</div>
+            <div class="tot-option" data-correct="true" data-reaction="the second i say something unhinged, you'll suddenly develop amnesia about ever knowing me. classic march move.">you, trying to pretend you don't know me.</div>
+          </div>
+          <div class="tot-reject-msg"></div>
+          <div class="tot-reaction"><span></span></div>
+        </div>
+
+        <div class="tot-item" data-item="3">
+          <p class="tot-question">who's more likely to send "nvm" immediately after typing something unhinged?</p>
+          <div class="tot-options">
+            <div class="tot-option" data-reject="nope. we both know that's not what happens.">me, panic mode activated instantly.</div>
+            <div class="tot-option" data-correct="true" data-reaction="then acts completely normal for the rest of the conversation like nothing happened. iconic behavior honestly.">you, then act innocent right after.</div>
+          </div>
+          <div class="tot-reject-msg"></div>
+          <div class="tot-reaction"><span></span></div>
+        </div>
+      </div>
+
+      <button class="next-fact-btn tot-next-btn" id="totNextBtn">next question →</button>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 4 : TABS ============ -->
+  <section class="panel">
+    <div class="tabs-panel fade-up">
+      <div class="eyebrow">03 - the archive</div>
+      <h2 class="tabs-title">a tour of our chat dynamics</h2>
+      <p class="tabs-sub">tap a card, i'll explain myself.</p>
+
+      <div class="tab-cards" id="tabCards">
+        <div class="tab-card" data-tab="1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8M8 13h5M21 12c0 4.4-4 8-9 8-1.3 0-2.6-.2-3.7-.7L3 21l1.4-4.1C3.5 15.4 3 13.8 3 12c0-4.4 4-8 9-8s9 3.6 9 8z"/></svg>
+          <p>the brainrot chats</p>
+        </div>
+        <div class="tab-card" data-tab="2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.2 2.3 4.5 6 4.1c2.2-.2 3.8 1 6 3.4 2.2-2.4 3.8-3.6 6-3.4 3.7.4 5.6 4.1 4 7.6C19.5 16.4 12 21 12 21z"/></svg>
+          <p>the heart-to-hearts</p>
+        </div>
+        <div class="tab-card" data-tab="3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-14h-7z"/></svg>
+          <p>the unprovoked bullying</p>
+        </div>
+      </div>
+
+      <div class="tab-body" data-body="1">
+        <div class="tab-body-inner">
+          <p>Ninety percent of our conversations make zero sense to anyone outside of them, and I genuinely wouldn't trade that for anything. The random 1 AM voice notes, the unhinged tangents that somehow always circle back, the inside jokes we'd never be able to explain to a court of law - that's the part of us that's just <i>ours</i>. Nobody else gets the reference. That's the whole point.</p>
+        </div>
+      </div>
+      <div class="tab-body" data-body="2">
+        <div class="tab-body-inner">
+          <p>Underneath all the chaos, you're one of the very few people I actually tell things to. The real stuff - the bad days, the overthinking, the things I don't say out loud to people I've actually met. You listen without making it weird, and then you go straight back to roasting me five minutes later, which is honestly the perfect balance. That switch means more than you know.</p>
+        </div>
+      </div>
+      <div class="tab-body" data-body="3">
+        <div class="tab-body-inner">
+          <p>I will never, under any circumstances, let you win an argument for free. This is not up for debate. The bullying is a love language, it is completely unprovoked, and it is happening regardless of your feelings on the matter. Consider this a permanent notice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MINI GAME ============ -->
+  <section class="panel game-panel">
+    <div class="card fade-up">
+      <div class="eyebrow">04 - a quick detour</div>
+      <h2 class="game-title">catch the stitches</h2>
+      <p class="game-sub">15 seconds. click the hearts and thread spools before they land. don't overthink it.</p>
+
+      <div class="game-stats">
+        <span id="gameScoreLabel">score: 0</span>
+        <span id="gameTimeLabel">time: 15</span>
+      </div>
+
+      <div class="game-field" id="gameField">
+        <div class="game-msg" id="gameMsg">press start to begin</div>
+      </div>
+
+      <button class="game-btn" id="gameStartBtn">start</button>
+      <div class="game-result" id="gameResult"></div>
+    </div>
+  </section>
+
+  <!-- ============ RAKHI THREAD ============ -->
+  <section class="panel rakhi-panel">
+    <div class="card fade-up">
+      <div class="eyebrow">05 - the rakhi thread</div>
+      <h2 class="rakhi-title">even the distance can't skip this one</h2>
+      <p class="rakhi-sub">i don't actually know if you tie one every year, but i know you bring it up like clockwork whenever it's close. so here's our version of it, built for two people who've never once been in the same room.</p>
+
+      <div class="rakhi-visual-wrap">
+        <div class="rakhi-art">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="a rakhi thread, tied">
+            <path d="M38 132c-14-26-14-58 4-82 22-28 62-34 92-14 26 18 36 54 22 84-16 34-54 50-88 38-14-5-24-14-30-26z" fill="var(--cream)" stroke="var(--pink-deep)" stroke-width="2"/>
+            <circle cx="100" cy="96" r="46" fill="none" stroke="var(--gold-soft)" stroke-width="5" stroke-dasharray="3 7" opacity="0.55"/>
+            <circle id="rakhiThread" cx="100" cy="96" r="46" fill="none" stroke="var(--rose)" stroke-width="6" stroke-linecap="round" stroke-dasharray="289" stroke-dashoffset="289" transform="rotate(-90 100 96)"/>
+            <circle cx="100" cy="96" r="18" fill="var(--gold)"/>
+            <path d="M100 82c0 0-8 6-8 12a8 8 0 0 0 16 0c0-6-8-12-8-12z" fill="var(--white)"/>
+            <circle cx="100" cy="96" r="4" fill="var(--rose)"/>
+          </svg>
+        </div>
+      </div>
+
+      <button class="rakhi-btn" id="rakhiBtn">tie it for me</button>
+
+      <div class="rakhi-promise" id="rakhiPromise">
+        <p>consider this the internet edition of the thread: however far away you are, whatever's going on, i've got your corner. that's the whole promise behind it, rakhi or not, every year, no expiry date.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 5 : VAULT ============ -->
+  <section class="panel vault-panel">
+    <div class="fade-up" style="width:100%;">
+      <div class="eyebrow">06 - open when...</div>
+      <h2 class="vault-title">the vault</h2>
+      <p class="vault-sub">for whenever you need one of these. tap an envelope.</p>
+
+      <div class="envelope-grid">
+        <div class="envelope" data-letter="1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <p>open when you're having a bad day</p>
+        </div>
+        <div class="envelope" data-letter="2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <p>open when you're bored of everyone else</p>
+        </div>
+        <div class="envelope" data-letter="3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <p>open when you need to remember you're a great sister</p>
+        </div>
+        <div class="envelope" data-letter="4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <p>open when eid feels a little quieter than usual</p>
+        </div>
+        <div class="envelope" data-letter="5">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <p>open on rakhi, even though it's not your festival</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SLIDE 6 : PHOTO GALLERY ============ -->
+  <section class="panel gallery-panel">
+    <div class="fade-up" style="width:100%;">
+      <div class="eyebrow">07 - proof we're real</div>
+      <h2 class="gallery-title">a few pictures, whenever they exist</h2>
+      <p class="gallery-sub">drop your photos into an <code>images</code> folder next to this file - <code>images/photo1.jpg</code>, <code>images/photo2.jpg</code>, <code>images/photo3.jpg</code> - and they'll show up here on their own.</p>
+
+      <div class="polaroid-grid">
+        <figure class="polaroid img-missing">
+          <img src="images/photo1.jpg" alt="a photo of us" onload="this.parentElement.classList.remove('img-missing');" onerror="this.parentElement.classList.add('img-missing');">
+          <div class="polaroid-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg>
+            <span>images/photo1.jpg</span>
+          </div>
+          <figcaption>us, probably mid-argument</figcaption>
+        </figure>
+        <figure class="polaroid img-missing">
+          <img src="images/photo2.jpg" alt="a photo of us" onload="this.parentElement.classList.remove('img-missing');" onerror="this.parentElement.classList.add('img-missing');">
+          <div class="polaroid-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg>
+            <span>images/photo2.jpg</span>
+          </div>
+          <figcaption>the day the call crashed 5 times</figcaption>
+        </figure>
+        <figure class="polaroid img-missing">
+          <img src="images/photo3.jpg" alt="a photo of us" onload="this.parentElement.classList.remove('img-missing');" onerror="this.parentElement.classList.add('img-missing');">
+          <div class="polaroid-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg>
+            <span>images/photo3.jpg</span>
+          </div>
+          <figcaption>proof we've actually met (virtually)</figcaption>
+        </figure>
+      </div>
+
+      <p class="footer-note">that's the whole site. thanks for being real with me, even from miles away. - your favorite younger brother 🤍</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ READING OVERLAY ============ -->
+<div class="overlay" id="overlay">
+  <div class="overlay-card" id="overlayCard">
+    <button class="overlay-close" id="overlayClose">✕</button>
+    <div id="overlayBody"></div>
+  </div>
+</div>
+
+<!-- ============ SECRET BONUS (unlocks after finding every moment) ============ -->
+<div class="overlay" id="secretOverlay">
+  <div class="overlay-card">
+    <button class="overlay-close" id="secretClose">✕</button>
+    <h3>you found all of it 🤍</h3>
+    <p>Every fact, every roast, every tab, every envelope - you actually clicked through the whole thing. I wasn't sure you'd make it this far without getting distracted, so, respect.</p>
+    <p>Here's the part that isn't a joke: meeting you online was never supposed to turn into this. Not this many inside jokes, not this much trust, not an actual sibling. It just did, somewhere between the chaos and the 2 AM texts, and I don't think either of us noticed it happening until it already had.</p>
+    <p>You didn't have to be this good at being my sister. You just were. So thank you, for real, for choosing to stick around from all those miles away.</p>
+    <div class="overlay-sign">- your favorite younger internet brother, no debate needed 🤍</div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+  /* ---------------- GATE LOGIC ---------------- */
+  const gateOpenBtn = document.getElementById('gateOpenBtn');
+  const gateQuestion = document.getElementById('gateQuestion');
+  const gateInput = document.getElementById('gateInput');
+  const gateSubmitBtn = document.getElementById('gateSubmitBtn');
+  const gateMsg = document.getElementById('gateMsg');
+  const gateSuccess = document.getElementById('gateSuccess');
+  const gateCard = document.querySelector('.gate-card');
+  const scrollHint = document.getElementById('scrollHint');
+  const mainContent = document.getElementById('mainContent');
+  const body = document.body;
+
+  gateOpenBtn.addEventListener('click', function(){
+    gateQuestion.classList.add('open');
+    gateOpenBtn.style.display = 'none';
+    setTimeout(()=> gateInput.focus(), 400);
+  });
+
+  function tryUnlock(){
+    const val = gateInput.value.trim();
+    if(val === '2009'){
+      gateMsg.classList.remove('show');
+      gateSuccess.classList.add('show');
+      gateInput.disabled = true;
+      gateSubmitBtn.disabled = true;
+      burstHearts();
+      body.classList.remove('locked');
+      mainContent.classList.remove('locked');
+      setTimeout(()=> scrollHint.classList.add('show'), 700);
+    } else {
+      gateMsg.textContent = "wow, forgetting my birth year already? smh, old age hitting hard.";
+      gateMsg.classList.add('show');
+      gateCard.classList.remove('gate-shake');
+      void gateCard.offsetWidth;
+      gateCard.classList.add('gate-shake');
+      gateInput.value = '';
+      gateInput.focus();
+    }
+  }
+  gateSubmitBtn.addEventListener('click', tryUnlock);
+  gateInput.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
+
+  function burstHearts(){
+    const layer = document.getElementById('heartLayer');
+    const colors = ['var(--rose)','var(--gold)','var(--pink-deep)'];
+    for(let i=0;i<26;i++){
+      const el = document.createElement('div');
+      el.className = 'burst-heart';
+      el.style.left = (Math.random()*100) + 'vw';
+      el.style.animationDelay = (Math.random()*0.6) + 's';
+      const size = 14 + Math.random()*16;
+      const c = colors[Math.floor(Math.random()*colors.length)];
+      el.innerHTML = '<svg width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="'+c+'"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.2 2.3 4.5 6 4.1c2.2-.2 3.8 1 6 3.4 2.2-2.4 3.8-3.6 6-3.4 3.7.4 5.6 4.1 4 7.6C19.5 16.4 12 21 12 21z"/></svg>';
+      layer.appendChild(el);
+      setTimeout(()=> el.remove(), 3200);
+    }
+  }
+
+  /* ---------------- SCROLL FADE-INS ---------------- */
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.classList.add('in-view');
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('.fade-up').forEach(el=> observer.observe(el));
+
+  /* ---------------- THREAD SCROLL PROGRESS ---------------- */
+  const threadFill = document.getElementById('threadFill');
+  const threadLen = 400;
+  window.addEventListener('scroll', function(){
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h > 0 ? Math.min(1, window.scrollY / h) : 0;
+    threadFill.style.strokeDashoffset = String(threadLen - threadLen*pct);
+  });
+
+  /* ---------------- AUDIO TOGGLE (soft ambient pad) ---------------- */
+  let audioCtx, gainNode, osc1, osc2, playing = false;
+  const audioBtn = document.getElementById('audioToggle');
+  function startAmbience(){
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    gainNode = audioCtx.createGain();
+    gainNode.gain.value = 0;
+    gainNode.connect(audioCtx.destination);
+    osc1 = audioCtx.createOscillator();
+    osc1.type = 'sine'; osc1.frequency.value = 220;
+    osc2 = audioCtx.createOscillator();
+    osc2.type = 'sine'; osc2.frequency.value = 330;
+    osc1.connect(gainNode); osc2.connect(gainNode);
+    osc1.start(); osc2.start();
+    gainNode.gain.linearRampToValueAtTime(0.035, audioCtx.currentTime + 1.2);
+  }
+  audioBtn.addEventListener('click', function(){
+    if(!playing){
+      if(!audioCtx) startAmbience();
+      else { audioCtx.resume(); gainNode.gain.linearRampToValueAtTime(0.035, audioCtx.currentTime + 0.6); }
+      playing = true;
+      audioBtn.classList.remove('is-muted');
+    } else {
+      gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.4);
+      playing = false;
+      audioBtn.classList.add('is-muted');
+    }
+  });
+
+  /* ---------------- MOMENTS-FOUND TRACKER + SECRET BONUS ---------------- */
+  const trackerEl = document.getElementById('progressTracker');
+  const trackerLabel = document.getElementById('progressLabel');
+  const secretOverlay = document.getElementById('secretOverlay');
+  const secretClose = document.getElementById('secretClose');
+  const totalMilestones = 10;
+  let milestoneCount = 0;
+  const milestoneFlags = {};
+  function markMilestone(key){
+    if(milestoneFlags[key]) return;
+    milestoneFlags[key] = true;
+    milestoneCount++;
+    trackerLabel.textContent = 'moments found: ' + milestoneCount + '/' + totalMilestones;
+    if(milestoneCount === totalMilestones){
+      trackerEl.classList.add('complete');
+      setTimeout(function(){
+        secretOverlay.classList.add('open');
+        burstHearts();
+      }, 700);
+    }
+  }
+  secretClose.addEventListener('click', ()=> secretOverlay.classList.remove('open'));
+  secretOverlay.addEventListener('click', function(e){ if(e.target === secretOverlay) secretOverlay.classList.remove('open'); });
+
+  /* ---------------- SLIDE 2: FACTS ---------------- */
+  const factSlides = document.querySelectorAll('.fact-slide');
+  const factDotsWrap = document.getElementById('factDots');
+  const nextFactBtn = document.getElementById('nextFactBtn');
+  let factIndex = 0;
+  factSlides.forEach((_, i)=>{
+    const dot = document.createElement('div');
+    dot.className = 'fact-dot' + (i===0 ? ' active' : '');
+    factDotsWrap.appendChild(dot);
+  });
+  const factDots = document.querySelectorAll('.fact-dot');
+  function showFact(i){
+    factSlides.forEach(s=> s.classList.toggle('active', Number(s.dataset.i)===i));
+    factDots.forEach((d,di)=> d.classList.toggle('active', di===i));
+    if(i === factSlides.length - 1){
+      nextFactBtn.textContent = "that's all the facts 🤍";
+      nextFactBtn.disabled = true;
+    }
+  }
+  nextFactBtn.addEventListener('click', function(){
+    if(factIndex < factSlides.length - 1){
+      factIndex++;
+      showFact(factIndex);
+    }
+  });
+
+  /* ---------------- SLIDE 3: THIS OR THAT (sequential) ---------------- */
+  const totItems = document.querySelectorAll('.tot-item');
+  const totDotsWrap = document.getElementById('totDots');
+  const totNextBtn = document.getElementById('totNextBtn');
+  let totIndex = 0;
+  const totAnswered = [false, false, false];
+
+  totItems.forEach((_, i)=>{
+    const dot = document.createElement('div');
+    dot.className = 'tot-dot' + (i===0 ? ' active' : '');
+    totDotsWrap.appendChild(dot);
+  });
+  const totDots = document.querySelectorAll('.tot-dot');
+
+  totItems.forEach((item, idx)=>{
+    const options = item.querySelectorAll('.tot-option');
+    const reaction = item.querySelector('.tot-reaction');
+    const reactionSpan = reaction.querySelector('span');
+    const rejectMsg = item.querySelector('.tot-reject-msg');
+    options.forEach(opt=>{
+      opt.addEventListener('click', function(){
+        if(item.dataset.locked === 'true') return;
+
+        if(opt.dataset.correct !== 'true'){
+          // wrong pick: it vanishes, a teasing line shows, nothing else happens
+          opt.classList.add('fading-out');
+          rejectMsg.textContent = opt.dataset.reject;
+          rejectMsg.classList.add('show');
+          setTimeout(()=>{ opt.style.display = 'none'; }, 500);
+          return;
+        }
+
+        // correct pick: lock it in, remove whatever's left, show the reaction
+        item.dataset.locked = 'true';
+        rejectMsg.classList.remove('show');
+        options.forEach(o=>{
+          if(o !== opt){ o.classList.add('fading-out'); }
+        });
+        opt.classList.add('picked', 'solo');
+        setTimeout(()=>{
+          options.forEach(o=>{ if(o !== opt) o.style.display = 'none'; });
+        }, 500);
+        reactionSpan.textContent = opt.dataset.reaction;
+        reaction.classList.add('show');
+        totAnswered[idx] = true;
+        markMilestone('tot' + (idx+1));
+        totNextBtn.classList.add('show');
+        totNextBtn.textContent = (idx === totItems.length - 1) ? "that's all the roasts 🤍" : 'next question →';
+      });
+    });
+  });
+
+  totNextBtn.addEventListener('click', function(){
+    if(!totAnswered[totIndex]) return;
+    if(totIndex >= totItems.length - 1) return;
+    totItems[totIndex].classList.remove('active');
+    totIndex++;
+    totItems[totIndex].classList.add('active');
+    totDots.forEach((d,di)=> d.classList.toggle('active', di===totIndex));
+    totNextBtn.classList.toggle('show', totAnswered[totIndex]);
+    if(totAnswered[totIndex]){
+      totNextBtn.textContent = (totIndex === totItems.length - 1) ? "that's all the roasts 🤍" : 'next question →';
+    }
+    if(totIndex === totItems.length - 1){
+      totNextBtn.disabled = false;
+    }
+  });
+
+  /* ---------------- SLIDE 4: TABS ---------------- */
+  document.querySelectorAll('.tab-card').forEach(card=>{
+    card.addEventListener('click', function(){
+      const id = card.dataset.tab;
+      const alreadyActive = card.classList.contains('active');
+      document.querySelectorAll('.tab-card').forEach(c=> c.classList.remove('active'));
+      document.querySelectorAll('.tab-body').forEach(b=> b.classList.remove('open'));
+      if(!alreadyActive){
+        card.classList.add('active');
+        document.querySelector('.tab-body[data-body="'+id+'"]').classList.add('open');
+      }
+    });
+  });
+
+  /* ---------------- MINI GAME ---------------- */
+  const gameField = document.getElementById('gameField');
+  const gameMsg = document.getElementById('gameMsg');
+  const gameStartBtn = document.getElementById('gameStartBtn');
+  const gameScoreLabel = document.getElementById('gameScoreLabel');
+  const gameTimeLabel = document.getElementById('gameTimeLabel');
+  const gameResult = document.getElementById('gameResult');
+  let score = 0, timeLeft = 15, spawnTimer, countdownTimer, gameRunning = false;
+
+  const icons = [
+    '<svg viewBox="0 0 24 24" fill="var(--rose)"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.2 2.3 4.5 6 4.1c2.2-.2 3.8 1 6 3.4 2.2-2.4 3.8-3.6 6-3.4 3.7.4 5.6 4.1 4 7.6C19.5 16.4 12 21 12 21z"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M8 8l8 8M16 8l-8 8"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2l2.9 6.3L21 9.3l-4.6 4.3L17.5 20 12 16.8 6.5 20l1.1-6.4L3 9.3l6.1-1z"/></svg>'
+  ];
+
+  function spawnItem(){
+    if(!gameRunning) return;
+    const el = document.createElement('div');
+    el.className = 'falling-item';
+    el.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+    el.style.left = (Math.random()*85) + '%';
+    const duration = 2 + Math.random()*1.4;
+    el.style.animationDuration = duration + 's';
+    el.addEventListener('click', function(){
+      if(!gameRunning) return;
+      score++;
+      gameScoreLabel.textContent = 'score: ' + score;
+      el.remove();
+    });
+    el.addEventListener('animationend', ()=> el.remove());
+    gameField.appendChild(el);
+  }
+
+  gameStartBtn.addEventListener('click', function(){
+    if(gameRunning) return;
+    gameRunning = true;
+    score = 0; timeLeft = 15;
+    gameScoreLabel.textContent = 'score: 0';
+    gameTimeLabel.textContent = 'time: 15';
+    gameResult.textContent = '';
+    gameMsg.style.display = 'none';
+    gameStartBtn.disabled = true;
+    gameField.querySelectorAll('.falling-item').forEach(el=> el.remove());
+
+    spawnTimer = setInterval(spawnItem, 480);
+    countdownTimer = setInterval(function(){
+      timeLeft--;
+      gameTimeLabel.textContent = 'time: ' + timeLeft;
+      if(timeLeft <= 0){
+        clearInterval(spawnTimer);
+        clearInterval(countdownTimer);
+        gameRunning = false;
+        gameField.querySelectorAll('.falling-item').forEach(el=> el.remove());
+        gameStartBtn.disabled = false;
+        let verdict;
+        if(score >= 18) verdict = "okay showoff, certified stitch-catching champion.";
+        else if(score >= 10) verdict = "respectable. you'd survive being my sister full-time.";
+        else if(score >= 4) verdict = "mid effort but i still love you.";
+        else verdict = "did you even try. we're talking about this later.";
+        gameResult.textContent = 'final score: ' + score + ' - ' + verdict;
+        markMilestone('game');
+      }
+    }, 1000);
+  });
+
+  /* ---------------- RAKHI THREAD ---------------- */
+  const rakhiBtn = document.getElementById('rakhiBtn');
+  const rakhiPromise = document.getElementById('rakhiPromise');
+  const rakhiThread = document.getElementById('rakhiThread');
+  rakhiBtn.addEventListener('click', function(){
+    if(rakhiBtn.disabled) return;
+    rakhiBtn.disabled = true;
+    rakhiBtn.textContent = 'tied 🤍';
+    if(rakhiThread) rakhiThread.style.strokeDashoffset = '0';
+    rakhiPromise.classList.add('show');
+    markMilestone('rakhi');
+  });
+
+  /* ---------------- VAULT LETTERS ---------------- */
+  const letters = {
+    "1": {
+      title: "open when you're having a bad day",
+      body: [
+        "If you're reading this, something's off and I want you to know it's allowed to be off. You don't have to be the strong one every single day, not even for me.",
+        "Whatever's going on, it's temporary, even when it doesn't feel like it. You've gotten through every hard day you've ever had so far, which is a perfect track record, actually.",
+        "Text me. Send the unhinged paragraph, send nothing at all, send a single crying emoji, I genuinely don't care which. I'll be here roasting you back to normal within the hour."
+      ],
+      sign: "- your annoying, loyal little brother"
+    },
+    "2": {
+      title: "open when you're bored of everyone else",
+      body: [
+        "Congratulations, you've reached the emergency backup sibling, permanently available, questionable comedic timing included at no extra charge.",
+        "Send me the most random thought in your head right now. I promise to match your chaos, escalate it slightly, and then somehow still make sense of it with you.",
+        "Everyone else can wait. I've got nowhere better to be."
+      ],
+      sign: "- always one message away"
+    },
+    "3": {
+      title: "open when you need to remember you're a great sister",
+      body: [
+        "You've never once made this whole 'siblings from different corners of the internet' thing feel like a downgrade from the real thing. If anything it feels like the upgrade.",
+        "You show up for me in ways you probably don't even think twice about. The random check-ins, the way you actually remember the small stuff I mention once, the way you never make the distance an excuse.",
+        "So here's your official, notarized reminder: you are, undebatably, a great sister. I don't hand that title out for free."
+      ],
+      sign: "- your very biased but very honest younger brother"
+    },
+    "4": {
+      title: "open when eid feels a little quieter than usual",
+      body: [
+        "I know Eid's a big one for you, and I know being far from everyone during it probably makes it feel a little quieter than it should.",
+        "I don't fully get all of it, and I'll never pretend I do, but I do get that it matters to you, which means it matters to me too.",
+        "So from wherever I am to wherever you are: Eid Mubarak. I hope the day is loud with people who love you, and if it isn't, know that I'm one of them anyway, keeping my streak of not understanding offside but always cheering for whichever jersey you're wearing."
+      ],
+      sign: "- your very unqualified but very sincere brother"
+    },
+    "5": {
+      title: "open on rakhi, even though it's not your festival",
+      body: [
+        "I know Rakhi isn't your thing, it's not even close to your thing, and I'm aware I'm sending you a virtual thread for a festival you've genuinely never celebrated in your life.",
+        "But here's the thing about siblings, real or internet-made: the actual ritual was never really the point. It was always just an excuse for a brother to say 'I've got you' out loud once a year instead of just assuming she already knows.",
+        "So consider this your very unofficial, very cross-religion, fully binding virtual rakhi. No thread, no ceremony, just the same promise anyway: I'm in your corner, distance and calendars and different festivals included."
+      ],
+      sign: "- your brother by internet, not by blood or belief, and apparently not by festival either"
+    }
+  };
+
+  const overlay = document.getElementById('overlay');
+  const overlayBody = document.getElementById('overlayBody');
+  const overlayClose = document.getElementById('overlayClose');
+
+  document.querySelectorAll('.envelope').forEach(env=>{
+    env.addEventListener('click', function(){
+      const data = letters[env.dataset.letter];
+      let html = '<h3>' + data.title + '</h3>';
+      data.body.forEach(p=> html += '<p>' + p + '</p>');
+      html += '<div class="overlay-sign">' + data.sign + '</div>';
+      overlayBody.innerHTML = html;
+      overlay.classList.add('open');
+      markMilestone('env' + env.dataset.letter);
+      if(env.dataset.letter === '5'){ burstHearts(); }
+    });
+  });
+  overlayClose.addEventListener('click', ()=> overlay.classList.remove('open'));
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.classList.remove('open'); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      overlay.classList.remove('open');
+      secretOverlay.classList.remove('open');
+    }
+  });
+
+  /* ---------------- FLOATING COMPLIMENT BUTTON ---------------- */
+  const complimentBtn = document.getElementById('complimentBtn');
+  const complimentPopover = document.getElementById('complimentPopover');
+  const compliments = [
+    "you have never once made 'online friend' feel like a lesser version of a real one.",
+    "you remember the small things i mention once. that's rarer than you think.",
+    "you're funnier than you give yourself credit for. genuinely, top tier chaos.",
+    "the fact that we've never met in person and you still feel like family says everything.",
+    "you're the kind of elder sibling who actually shows up, not just talks about it.",
+    "miles apart and you still somehow know when something's wrong before i say it.",
+    "you make the internet feel a lot less random and a lot more like home."
+  ];
+  let lastComplimentIndex = -1;
+  complimentBtn.addEventListener('click', function(){
+    let idx;
+    do { idx = Math.floor(Math.random()*compliments.length); } while(idx === lastComplimentIndex && compliments.length > 1);
+    lastComplimentIndex = idx;
+    complimentPopover.textContent = compliments[idx];
+    complimentPopover.classList.add('show');
+    clearTimeout(complimentPopover._t);
+    complimentPopover._t = setTimeout(()=> complimentPopover.classList.remove('show'), 4200);
+  });
+
+})();
+</script>
+</body>
+</html>
